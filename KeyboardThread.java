@@ -24,5 +24,17 @@ public class KeyboardThread extends KeyAdapter {
         if(key == KeyEvent.VK_S){
             camera.transformZ(-1);
         }
+        if(key == KeyEvent.VK_D){
+            camera.rotateX(-1);
+        }
+        if(key == KeyEvent.VK_G){
+            camera.rotateX(1);
+        }
+        if(key == KeyEvent.VK_R){
+            camera.rotateY(1);
+        }
+        if(key == KeyEvent.VK_F){
+            camera.rotateY(-1);
+        }
     }
 }

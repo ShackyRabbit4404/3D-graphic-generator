@@ -2,7 +2,7 @@ import java.util.*;
 public class Camera{
     private Vector location;
     // 0 == x, 1 == y, 2 == z
-    private int[] rotation;
+    private double[] rotation;
     private ArrayList<Vector> points;
     private double[] viewRange;
     private double width;
@@ -10,7 +10,7 @@ public class Camera{
     private double viewPlaneDistance;
     public Camera(ArrayList<Vector> v,int w,int h,double[] vr){
         location = new Vector(0,0,0);
-        rotation = new int[3];
+        rotation = new double[3];
         points = v;
         width = w;
         height = h;
@@ -50,7 +50,8 @@ public class Camera{
             */
             view[a][0] = (points.get(a).loc[0]-location.loc[0])*(viewPlaneDistance/(points.get(a).loc[2]-location.loc[2]));
             view[a][1] = (points.get(a).loc[1]-location.loc[1])*(viewPlaneDistance/(points.get(a).loc[2]-location.loc[2]));
-        
+            view[a][0] = Math.tan(Math.atan(view[a][0]/viewPlaneDistance)-rotation[0])*viewPlaneDistance;
+            view[a][1] = Math.tan(Math.atan(view[a][1]/viewPlaneDistance)-rotation[1])*viewPlaneDistance;
         }
         return view;
     }   
