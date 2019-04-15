@@ -50,8 +50,9 @@ public class Camera{
             */
             view[a][0] = (points.get(a).loc[0]-location.loc[0])*(viewPlaneDistance/(points.get(a).loc[2]-location.loc[2]));
             view[a][1] = (points.get(a).loc[1]-location.loc[1])*(viewPlaneDistance/(points.get(a).loc[2]-location.loc[2]));
-            view[a][0] = Math.tan(Math.atan(view[a][0]/viewPlaneDistance)-rotation[0])*viewPlaneDistance;
-            view[a][1] = Math.tan(Math.atan(view[a][1]/viewPlaneDistance)-rotation[1])*viewPlaneDistance;
+            //System.out.println(Math.toDegrees(Math.atan(view[a][0]/viewPlaneDistance)));
+            view[a][0] = Math.tan(Math.toRadians(Math.toDegrees(Math.atan(view[a][0]/viewPlaneDistance))-rotation[0]))*viewPlaneDistance;
+            view[a][1] = Math.tan(Math.toRadians(Math.toDegrees(Math.atan(view[a][1]/viewPlaneDistance))-rotation[1]))*viewPlaneDistance;
         }
         return view;
     }   
