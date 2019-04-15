@@ -36,5 +36,8 @@ public class KeyboardThread extends KeyAdapter {
         if(key == KeyEvent.VK_F){
             camera.rotateY(-1);
         }
+        if(key == KeyEvent.VK_ESCAPE){
+            camera.useMouse = false;
+        }
     }
 }
